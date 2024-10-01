@@ -2,6 +2,7 @@ import clsx from 'clsx'
 
 import { Container } from '@/components/temp/Container'
 import { FadeIn } from '@/components/temp/FadeIn'
+import React from "react";
 
 export function PageIntro({
                               eyebrow,

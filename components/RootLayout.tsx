@@ -1,4 +1,4 @@
-import React, {createContext, useContext, useEffect, useId, useRef, useState} from "react";
+import React, {createContext, useEffect, useId, useRef, useState} from "react";
 import {Container} from "@/components/temp/Container";
 import Link from "next/link";
 import {Logo} from "@/components/Logo";
@@ -47,23 +47,14 @@ function Header({
     toggleRef: React.RefObject<HTMLButtonElement>
     invert?: boolean
 }) {
-    let { logoHovered, setLogoHovered } = useContext(RootLayoutContext)!
 
     return (
         <Container>
             <div className="flex items-center justify-between">
-                <Link
-                    href="/"
-                    aria-label="Home"
-                    onMouseEnter={() => setLogoHovered(true)}
-                    onMouseLeave={() => setLogoHovered(false)}
-                >
-
-                    <Logo
-                        className=" h-8 sm:block"
-                        invert={invert}
-                    />
-                </Link>
+                <Logo
+                    className=" h-8 sm:block"
+                    invert={invert}
+                />
                 <div className="flex items-center gap-x-8">
                     <Button href="/contact" invert={invert}>
                         Contact us
