@@ -16,7 +16,7 @@ export default function Page() {
             <div className={'pt-24 px-6 max-w-xl text-center mx-auto'}>
                 <div className={'space-y-12 '}>
                     <h1 className={'text-4xl font-bold text-slate-700  -tracking-wider'}><span
-                        className={'text-teal-500'}>Flesh</span> relfecting Yourself!</h1>
+                        className={'text-teal-500'}>Flesh</span> reflecting Yourself!</h1>
                     <div className={'space-y-6 text-xl leading-8'}>
                         <p className={'text-slate-600'}>Handcrafted for each influencer separately, high-end adult
                             product Flesh gives them a really unique and personal bond. More specifically, designed for
@@ -79,7 +79,7 @@ export default function Page() {
             >
 
                 Feel a deeper connection with your audience, where intimacy meets innovation and every little detail is
-                hand-crafted to reflect your real essence. More than just products, they're a bridge between you and
+                hand-crafted to reflect your real essence. More than just products, they&apos;re a bridge between you and
                 those who admire you, designed to bring your unique presence into their world like never before.</Motto>
             <FAQ />
         </>
