@@ -51,10 +51,12 @@ function Header({
     return (
         <Container>
             <div className="flex items-center justify-between">
-                <Logo
-                    className=" h-8 sm:block"
-                    invert={invert}
-                />
+                <Link href="/">
+                    <Logo
+                        className=" h-8 sm:block"
+                        invert={invert}
+                    />
+                </Link>
                 <div className="flex items-center gap-x-8">
                     <Button href="/contact" invert={invert}>
                         Contact us
