@@ -1,6 +1,5 @@
 "use client";
 
-import type {JSX} from "react";
 import {useRef, useState} from "react";
 import {Container} from "@/components/temp/Container";
 import {faqItems} from "@/libs/content";
@@ -13,7 +12,7 @@ import {faHeart} from "@fortawesome/pro-solid-svg-icons";
 
 interface FAQItemProps {
   question: string;
-  answer: JSX.Element;
+  answer: string;
 }
 
 const FaqItem = ({ item }: { item: FAQItemProps }) => {
