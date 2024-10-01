@@ -119,10 +119,10 @@ function ContactDetails() {
 
             <dl className="mt-12 grid grid-cols-1 gap-12 text-sm sm:grid-cols-2">
                 {[
-                    ['General', 'contact@coneflesh.com'],
-                    ['Support', 'support@coneflesh.com'],
-                    ['Shop', 'shop@coneflesh.com'],
-                    ['B2B', 'b2b@coneflesh.com'],
+                    ['General', 'contact@cloneflesh.com'],
+                    ['Support', 'support@cloneflesh.com'],
+                    ['Shop', 'shop@cloneflesh.com'],
+                    ['B2B', 'b2b@cloneflesh.com'],
                 ].map(([label, email]) => (
                     <div key={email}>
                         <dt className="font-semibold text-neutral-950">{label}</dt>
