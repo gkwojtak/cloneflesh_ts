@@ -6,7 +6,14 @@ module.exports = {
     "./styles/globals.css",
   ],
   theme: {
+    fontFamily: { // note: you can call the left side of this whatever you want - barlow-bold or title-font or foo-bar, this is what you'll use in your Tailwind css classes to use this font
+      "poppins": 'var(--font-poppins)', // note: the bit that goes inside the var() function is the same variable name we defined in app.tsx
+    },
     extend: {
+      fontFamily: {
+        "logo": 'var(--font-logo)', // note: you can call the left side of this whatever you want - barlow-bold or title-font or foo-bar, this is what you'll use in your Tailwind css classes to use this font
+        "poppins": 'var(--font-poppins)', // note: the bit that goes inside the var() function is the same variable name we defined in app.tsx
+      },
       backgroundImage: {
         gradient:
           "linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82)",

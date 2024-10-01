@@ -1,22 +1,40 @@
+import Link from 'next/link'
 import clsx from 'clsx'
 
-type ContainerProps<T extends React.ElementType> = {
-    as?: T
-    className?: string
-    children: React.ReactNode
-}
+type ButtonProps = {
+    invert?: boolean
+} & (
+    | React.ComponentPropsWithoutRef<typeof Link>
+    | (React.ComponentPropsWithoutRef<'button'> & { href?: undefined })
+    )
 
-export function Container<T extends React.ElementType = 'div'>({
-                                                                   as,
-                                                                   className,
-                                                                   children,
-                                                               }: Omit<React.ComponentPropsWithoutRef<T>, keyof ContainerProps<T>> &
-    ContainerProps<T>) {
-    let Component = as ?? 'div'
+export function Button({
+                           invert = false,
+                           className,
+                           children,
+                           ...props
+                       }: ButtonProps) {
+    className = clsx(
+        className,
+        'inline-flex rounded-full px-6 py-3 text-sm font-medium transition',
+        invert
+            ? 'bg-slate-800 text-white hover:bg-slate-900'
+            : 'bg-slate-800 text-white hover:bg-slate-900',
+    )
+
+    let inner = <span className="relative top-px">{children}</span>
+
+    if (typeof props.href === 'undefined') {
+        return (
+            <button className={className} {...props}>
+                {inner}
+            </button>
+        )
+    }
 
     return (
-        <Component className={clsx('mx-auto max-w-7xl px-6 lg:px-8', className)}>
-            <div className="mx-auto max-w-2xl lg:max-w-none">{children}</div>
-        </Component>
+        <Link className={className} {...props}>
+            {inner}
+        </Link>
     )
 }

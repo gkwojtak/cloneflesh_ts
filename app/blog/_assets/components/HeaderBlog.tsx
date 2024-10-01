@@ -1,14 +1,14 @@
 "use client";
 
-import type { JSX } from "react";
-import { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
-import { Popover, Transition } from "@headlessui/react";
+import type {JSX} from "react";
+import {useEffect, useState} from "react";
+import {useSearchParams} from "next/navigation";
+import {Popover, Transition} from "@headlessui/react";
 import Link from "next/link";
 import Image from "next/image";
 import logo from "@/app/icon.png";
 import config from "@/config";
-import { categories } from "../content";
+import {categories} from "../content";
 import ButtonSignin from "@/components/ButtonSignin";
 
 const links: {

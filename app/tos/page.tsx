@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getSEOTags } from "@/libs/seo";
+import {getSEOTags} from "@/libs/seo";
 import config from "@/config";
 
 // CHATGPT PROMPT TO GENERATE YOUR TERMS & SERVICES — replace with your own data 👇
@@ -53,7 +53,7 @@ const TOS = () => {
           Terms and Conditions for {config.appName}
         </h1>
 
-        <pre
+  {/*      <pre
           className="leading-relaxed whitespace-pre-wrap"
           style={{ fontFamily: "sans-serif" }}
         >
@@ -90,7 +90,7 @@ We may update these Terms from time to time. Users will be notified of any chang
 For any questions or concerns regarding these Terms of Service, please contact us at marc@shipfa.st.
 
 Thank you for using ShipFast!`}
-        </pre>
+        </pre>*/}
       </div>
     </main>
   );

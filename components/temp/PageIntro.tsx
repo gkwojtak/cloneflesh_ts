@@ -1,36 +1,47 @@
 import clsx from 'clsx'
 
-type BorderProps<T extends React.ElementType> = {
-    as?: T
-    className?: string
-    position?: 'top' | 'left'
-    invert?: boolean
-}
+import { Container } from '@/components/temp/Container'
+import { FadeIn } from '@/components/temp/FadeIn'
 
-export function Border<T extends React.ElementType = 'div'>({
-                                                                as,
-                                                                className,
-                                                                position = 'top',
-                                                                invert = false,
-                                                                ...props
-                                                            }: Omit<React.ComponentPropsWithoutRef<T>, keyof BorderProps<T>> &
-    BorderProps<T>) {
-    let Component = as ?? 'div'
-
+export function PageIntro({
+                              eyebrow,
+                              title,
+                              children,
+                              centered = false,
+                          }: {
+    eyebrow: string
+    title: string
+    children: React.ReactNode
+    centered?: boolean
+}) {
     return (
-        <Component
-            className={clsx(
-                className,
-                'relative before:absolute after:absolute',
-                invert
-                    ? 'before:bg-white after:bg-white/10'
-                    : 'before:bg-neutral-950 after:bg-neutral-950/10',
-                position === 'top' &&
-                'before:left-0 before:top-0 before:h-px before:w-6 after:left-8 after:right-0 after:top-0 after:h-px',
-                position === 'left' &&
-                'before:left-0 before:top-0 before:h-6 before:w-px after:bottom-0 after:left-0 after:top-8 after:w-px',
-            )}
-            {...props}
-        />
+        <Container
+            className={clsx('mt-24 sm:mt-32 lg:mt-40', centered && 'text-center')}
+        >
+            <FadeIn>
+                <h1>
+          <span className="block font-display text-base font-semibold text-neutral-950">
+            {eyebrow}
+          </span>
+                    <span className="sr-only"> - </span>
+                    <span
+                        className={clsx(
+                            'mt-6 block max-w-5xl font-display text-5xl font-medium tracking-tight text-neutral-950 [text-wrap:balance] sm:text-6xl',
+                            centered && 'mx-auto',
+                        )}
+                    >
+            {title}
+          </span>
+                </h1>
+                <div
+                    className={clsx(
+                        'mt-6 max-w-3xl text-xl text-neutral-600',
+                        centered && 'mx-auto',
+                    )}
+                >
+                    {children}
+                </div>
+            </FadeIn>
+        </Container>
     )
 }

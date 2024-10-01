@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getSEOTags } from "@/libs/seo";
+import {getSEOTags} from "@/libs/seo";
 import config from "@/config";
 
 // CHATGPT PROMPT TO GENERATE YOUR PRIVACY POLICY — replace with your own data 👇
@@ -53,7 +53,7 @@ const PrivacyPolicy = () => {
           Privacy Policy for {config.appName}
         </h1>
 
-        <pre
+{/*        <pre
           className="leading-relaxed whitespace-pre-wrap"
           style={{ fontFamily: "sans-serif" }}
         >
@@ -102,7 +102,7 @@ Email: marc@shipfa.st
 For all other inquiries, please visit our Contact Us page on the Website.
 
 By using ShipFast, you consent to the terms of this Privacy Policy.`}
-        </pre>
+        </pre>*/}
       </div>
     </main>
   );

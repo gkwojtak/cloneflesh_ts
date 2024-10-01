@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import {Suspense} from "react";
 import HeaderBlog from "./_assets/components/HeaderBlog";
 import Footer from "@/components/Footer";
 

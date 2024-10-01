@@ -1,4 +1,6 @@
 import clsx from 'clsx'
+import React from "react";
+import Link from "next/link";
 
 function Office({
                     name,
@@ -12,37 +14,33 @@ function Office({
     return (
         <address
             className={clsx(
-                'text-sm not-italic',
-                invert ? 'text-neutral-300' : 'text-neutral-600',
+                'text-sm not-italic space-y-2',
+                invert ? 'text-teal-800' : 'text-neutral-600',
             )}
         >
-            <strong className={invert ? 'text-white' : 'text-neutral-950'}>
+            <strong className={invert ? 'text-teal-800' : 'text-neutral-950'}>
                 {name}
             </strong>
             <br />
-            {children}
+            <Link href={`mailto:${children}`}>{children}</Link>
         </address>
     )
 }
 
-export function Offices({
+export function SimpleContact({
                             invert = false,
                             ...props
                         }: React.ComponentPropsWithoutRef<'ul'> & { invert?: boolean }) {
     return (
         <ul role="list" {...props}>
             <li>
-                <Office name="Copenhagen" invert={invert}>
-                    1 Carlsberg Gate
-                    <br />
-                    1260, København, Denmark
+                <Office name="Influencers" invert={invert}>
+                    influ@cloneflesh.com
                 </Office>
             </li>
             <li>
-                <Office name="Billund" invert={invert}>
-                    24 Lego Allé
-                    <br />
-                    7190, Billund, Denmark
+                <Office name="Shopping" invert={invert}>
+                    shop@cloneflesh.com
                 </Office>
             </li>
         </ul>

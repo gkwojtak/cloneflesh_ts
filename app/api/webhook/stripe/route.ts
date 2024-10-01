@@ -1,8 +1,8 @@
 import configFile from "@/config";
-import { findCheckoutSession } from "@/libs/stripe";
-import { SupabaseClient } from "@supabase/supabase-js";
-import { headers } from "next/headers";
-import { NextRequest, NextResponse } from "next/server";
+import {findCheckoutSession} from "@/libs/stripe";
+import {SupabaseClient} from "@supabase/supabase-js";
+import {headers} from "next/headers";
+import {NextRequest, NextResponse} from "next/server";
 import Stripe from "stripe";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {

@@ -1,71 +1,53 @@
 import {Container} from "@/components/temp/Container";
-import {whyItsWorthList} from "@/libs/content";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {productGridImages} from "@/libs/content";
 import {FadeIn, FadeInStagger} from "@/components/temp/FadeIn";
+import clsx from "clsx";
+import Image from "next/image";
+import {faHeart} from "@fortawesome/pro-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-const FeaturesPrimary = () => {
+const ProductImageGrid = () => {
   return (
-      <div className={'bg-teal-100 mx-auto max-w-[1560px] to-white rounded-[40px] py-24 font-poppins'}>
-          <Container>
-              <div className={'grid grid-cols-1 pb-24 gap-24 '}>
-                  <div className={'space-y-12 max-w-4xl mx-auto'}>
-                      <h1 className={'text-4xl font-bold text-slate-700 -tracking-wider'}>Say Yessss!</h1>
-                      <div className={'space-y-6 md:pr-32'}>
-                          <p className={'text-slate-600 '}>Your influence goes beyond the screen, offering a
-                              personalized experience that brings your fans closer to you. Each item is crafted
-                              with meticulous attention to detail, ensuring it perfectly captures your essence.</p>
-                          <p className={'text-slate-600 '}>This isn’t just something you own - This isn’t just
-                              something your fans own—it’s a piece of your world, designed exclusively for them.
-                              It’s developed to deepen their connection with you in a way that’s both meaningful
-                              and memorable.</p>
-                          <button
-                              className={'py-4 px-8 bg-slate-800 hover:bg-slate-900 rounded-full text-sm font-bold text-white'}>Ready?
-                              Let’s Get Started
-                          </button>
-                      </div>
-                  </div>
-              </div>
-          </Container>
-          <div className={'mx-auto text-left md:border-t border-teal-700/20  '}>
-              <Container>
-                  <FadeInStagger className="mx-auto text-left grid md:grid-cols-2">
-                      {whyItsWorthList.slice(0, 2).map((item) => {
-                          return (
+      <div className={'mx-auto  text-left  '}>
+          <Container className={'relative'}>
+              <FadeInStagger>
+                  <div className={' grid  md:grid-cols-2  gap-6'}>
+                      <FadeIn
+                          className={clsx('space-y-6  max-w-4xl mx-auto')}
+                          key={1}>
+                          {/*      <Image src={FleshImageTop} alt={'Flesh Hero'}
+                                 className={' max-w-2xl rounded-2xl w-full '} />*/}
+                          <Image src={productGridImages[1].src} alt={'Flesh Hero'}
+                                 className={' max-w-2xl rounded-2xl w-full '} />
+                      </FadeIn>
+                      <FadeIn
+                          className={clsx('space-y-6   max-w-4xl mx-auto')}
+                          key={1}>
+                          <Image src={productGridImages[0].src} alt={'Flesh Hero'}
+                                 className={' max-w-2xl rounded-2xl w-full '} />
+                      </FadeIn>
 
-                                  <FadeIn className={'space-y-6 mb-12 md:mb-0 md:p-12 border-teal-700/20 max-w-4xl mx-auto md:odd:border-r'}
-                                            key={item.title}>
-                                  <FontAwesomeIcon icon={item.icon}
-                                                   className={' p-4 bg-white rounded-full text-teal-700 text-2xl'} />
-                                  <h1 className={'text-lg text-slate-700 font-semibold -tracking-wider'}>{item.title}</h1>
-                                  <p className={'text-slate-900/80'}>{item.description}</p>
-                                  </FadeIn>
-
-                          )
-                      })}
-                  </FadeInStagger>
-              </Container>
-          </div>
-          <div className={'mx-auto text-left md:border-y border-teal-700/20  '}>
-              <Container>
-                  <FadeInStagger className="mx-auto text-left grid md:grid-cols-2">
-                      {whyItsWorthList.slice(2, 4).map((item, index) => {
+                      {/*{productGridImages.map((item) => {
                           return (
-                              <FadeIn className={'space-y-6 mb-12 md:mb-0 md:p-12 border-teal-700/20 max-w-4xl mx-auto md:odd:border-r'}
-                                      key={item.title}>
-                                  <FontAwesomeIcon icon={item.icon}
-                                                   className={' p-4 bg-white rounded-full text-teal-700 text-2xl'} />
-                                  <h1 className={'text-lg text-slate-700 font-semibold -tracking-wider'}>{item.title}</h1>
-                                  <p className={'text-slate-900/80'}>{item.description}</p>
+                              <FadeIn
+                                  className={clsx(' aspect-square max-w-4xl  ')}
+                                  key={item.id}>
+                                  <Image src={item.src} fill alt={'Flesh Hero'}
+                                         className={'relative rounded-2xl  max-w-2xl w-full'} />
                               </FadeIn>
                           )
-                      })}
-                  </FadeInStagger>
-              </Container>
+                      })}*/}
+                  </div>
 
-
-          </div>
+              </FadeInStagger>
+              <div
+                  className={'absolute ring-8 ring-white/40 rounded-2xl z-20 left-1/2 p-6 text-xl font-semibold -translate-x-1/2 bg-white space-x-4 shadow-xl top-1/2 -translate-y-1/2'}>
+                  <FontAwesomeIcon icon={faHeart} className={'text-red-500 text-2xl'} />
+                  <span>Yesss! It's You inside!</span>
+              </div>
+          </Container>
       </div>
   );
 };
 
-export default FeaturesPrimary;
+export default ProductImageGrid;

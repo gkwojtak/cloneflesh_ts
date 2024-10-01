@@ -1,7 +1,7 @@
 import React, {createContext, useContext, useEffect, useId, useRef, useState} from "react";
 import {Container} from "@/components/temp/Container";
 import Link from "next/link";
-import {Logo, Logomark} from "@/components/Logo";
+import {Logo} from "@/components/Logo";
 import {Button} from "@/components/temp/Button";
 import clsx from "clsx";
 import {motion, MotionConfig, useReducedMotion} from "framer-motion";
@@ -60,9 +60,8 @@ function Header({
                 >
 
                     <Logo
-                        className="hidden h-8 sm:block"
+                        className=" h-8 sm:block"
                         invert={invert}
-                        filled={logoHovered}
                     />
                 </Link>
                 <div className="flex items-center gap-x-8">
@@ -128,12 +127,12 @@ function Navigation() {
     return (
         <nav className="mt-px font-display text-5xl font-medium tracking-tight text-teal-800">
             <NavigationRow>
-                <NavigationItem href="/work">Product</NavigationItem>
-                <NavigationItem href="/about">About Us</NavigationItem>
+                <NavigationItem href="/product">Product</NavigationItem>
+                <NavigationItem href="/shop">Shop</NavigationItem>
             </NavigationRow>
             <NavigationRow>
                 <NavigationItem href="/process">The Process</NavigationItem>
-                <NavigationItem href="/blog">Contact</NavigationItem>
+                <NavigationItem href="/contact">Contact</NavigationItem>
             </NavigationRow>
         </nav>
     )
@@ -248,7 +247,7 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
                     className="relative isolate flex w-full flex-col pt-9"
                 >
 
-                    <main className="w-full flex-auto">{children}</main>
+                    <main className="w-full flex-auto py-12">{children}</main>
 
                     <Footer />
                 </motion.div>

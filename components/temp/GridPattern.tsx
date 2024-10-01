@@ -1,330 +1,129 @@
 'use client'
 
-import {
-    createContext,
-    useContext,
-    useEffect,
-    useId,
-    useRef,
-    useState,
-} from 'react'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import clsx from 'clsx'
-import { motion, MotionConfig, useReducedMotion } from 'framer-motion'
+import { useEffect, useId, useRef, useState } from 'react'
+import { motion } from 'framer-motion'
 
-import { Button } from '@/components/Button'
-import { Container } from '@/components/temp/Container'
-import { Footer } from '@/components/temp/Footer'
-import { GridPattern } from '@/components/GridPattern'
-import { Logo, Logomark } from '@/components/Logo'
-import { Offices } from '@/components/Offices'
-import { SocialMedia } from '@/components/SocialMedia'
-
-
-
-import { Inter } from "next/font/google";
-import { Viewport } from "next";
-import PlausibleProvider from "next-plausible";
-import { getSEOTags } from "@/libs/seo";
-import ClientLayout from "@/components/LayoutClient";
-import config from "@/config";
-import "./globals.css";
-
-const font = Inter({ subsets: ["latin"] });
-
-export const viewport: Viewport = {
-  // Will use the primary color of your theme to show a nice theme color in the URL bar of supported browsers
-  themeColor: config.colors.main,
-  width: "device-width",
-  initialScale: 1,
-};
-
-// This adds default SEO tags to all pages in our app.
-// You can override them in each page passing params to getSOTags() function.
-/*
-export const metadata = getSEOTags();
-
-export default function RootLayout({ children }: { children: ReactNode }) {
-  return (
-    <html lang="en" data-theme={config.colors.theme} className={font.className}>
-      {config.domainName && (
-        <head>
-          <PlausibleProvider domain={config.domainName} />
-        </head>
-      )}
-      <body>
-        {/!* ClientLayout contains all the client wrappers (Crisp chat support, toast messages, tooltips, etc.) *!/}
-        <ClientLayout>{children}</ClientLayout>
-      </body>
-    </html>
-  );
-}
-*/
-
-const RootLayoutContext = createContext<{
-  logoHovered: boolean
-  setLogoHovered: React.Dispatch<React.SetStateAction<boolean>>
-} | null>(null)
-
-function XIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
-  return (
-      <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
-        <path d="m5.636 4.223 14.142 14.142-1.414 1.414L4.222 5.637z" />
-        <path d="M4.222 18.363 18.364 4.22l1.414 1.414L5.636 19.777z" />
-      </svg>
-  )
-}
-
-function MenuIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
-  return (
-      <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
-        <path d="M2 6h20v2H2zM2 16h20v2H2z" />
-      </svg>
-  )
-}
-
-function Header({
-                  panelId,
-                  icon: Icon,
-                  expanded,
-                  onToggle,
-                  toggleRef,
-                  invert = false,
-                }: {
-  panelId: string
-  icon: React.ComponentType<{ className?: string }>
-  expanded: boolean
-  onToggle: () => void
-  toggleRef: React.RefObject<HTMLButtonElement>
-  invert?: boolean
+function Block({
+                   x,
+                   y,
+                   ...props
+               }: Omit<React.ComponentPropsWithoutRef<typeof motion.path>, 'x' | 'y'> & {
+    x: number
+    y: number
 }) {
-  let { logoHovered, setLogoHovered } = useContext(RootLayoutContext)!
-
-  return (
-      <Container>
-        <div className="flex items-center justify-between">
-          <Link
-              href="/"
-              aria-label="Home"
-              onMouseEnter={() => setLogoHovered(true)}
-              onMouseLeave={() => setLogoHovered(false)}
-          >
-            <Logomark
-                className="h-8 sm:hidden"
-                invert={invert}
-                filled={logoHovered}
-            />
-            <Logo
-                className="hidden h-8 sm:block"
-                invert={invert}
-                filled={logoHovered}
-            />
-          </Link>
-          <div className="flex items-center gap-x-8">
-            <Button href="/contact" invert={invert}>
-              Contact us
-            </Button>
-            <button
-                ref={toggleRef}
-                type="button"
-                onClick={onToggle}
-                aria-expanded={expanded ? 'true' : 'false'}
-                aria-controls={panelId}
-                className={clsx(
-                    'group -m-2.5 rounded-full p-2.5 transition',
-                    invert ? 'hover:bg-white/10' : 'hover:bg-neutral-950/10',
-                )}
-                aria-label="Toggle navigation"
-            >
-              <Icon
-                  className={clsx(
-                      'h-6 w-6',
-                      invert
-                          ? 'fill-white group-hover:fill-neutral-200'
-                          : 'fill-neutral-950 group-hover:fill-neutral-700',
-                  )}
-              />
-            </button>
-          </div>
-        </div>
-      </Container>
-  )
+    return (
+        <motion.path
+            transform={`translate(${-32 * y + 96 * x} ${160 * y})`}
+            d="M45.119 4.5a11.5 11.5 0 0 0-11.277 9.245l-25.6 128C6.82 148.861 12.262 155.5 19.52 155.5h63.366a11.5 11.5 0 0 0 11.277-9.245l25.6-128c1.423-7.116-4.02-13.755-11.277-13.755H45.119Z"
+            {...props}
+        />
+    )
 }
 
-function NavigationRow({ children }: { children: React.ReactNode }) {
-  return (
-      <div className="even:mt-px sm:bg-neutral-950">
-        <Container>
-          <div className="grid grid-cols-1 sm:grid-cols-2">{children}</div>
-        </Container>
-      </div>
-  )
-}
-
-function NavigationItem({
-                          href,
-                          children,
-                        }: {
-  href: string
-  children: React.ReactNode
+export function GridPattern({
+                                yOffset = 0,
+                                interactive = false,
+                                ...props
+                            }: React.ComponentPropsWithoutRef<'svg'> & {
+    yOffset?: number
+    interactive?: boolean
 }) {
-  return (
-      <Link
-          href={href}
-          className="group relative isolate -mx-6 bg-neutral-950 px-6 py-10 even:mt-px sm:mx-0 sm:px-0 sm:py-16 sm:odd:pr-16 sm:even:mt-0 sm:even:border-l sm:even:border-neutral-800 sm:even:pl-16"
-      >
-        {children}
-        <span className="absolute inset-y-0 -z-10 w-screen bg-neutral-900 opacity-0 transition group-odd:right-0 group-even:left-0 group-hover:opacity-100" />
-      </Link>
-  )
-}
+    let id = useId()
+    let ref = useRef<React.ElementRef<'svg'>>(null)
+    let currentBlock = useRef<[x: number, y: number]>()
+    let counter = useRef(0)
+    let [hoveredBlocks, setHoveredBlocks] = useState<
+        Array<[x: number, y: number, key: number]>
+    >([])
+    let staticBlocks = [
+        [1, 1],
+        [2, 2],
+        [4, 3],
+        [6, 2],
+        [7, 4],
+        [5, 5],
+    ]
 
-function Navigation() {
-  return (
-      <nav className="mt-px font-display text-5xl font-medium tracking-tight text-white">
-        <NavigationRow>
-          <NavigationItem href="/work">Our Work</NavigationItem>
-          <NavigationItem href="/about">About Us</NavigationItem>
-        </NavigationRow>
-        <NavigationRow>
-          <NavigationItem href="/process">Our Process</NavigationItem>
-          <NavigationItem href="/blog">Blog</NavigationItem>
-        </NavigationRow>
-      </nav>
-  )
-}
+    useEffect(() => {
+        if (!interactive) {
+            return
+        }
 
-function RootLayoutInner({ children }: { children: React.ReactNode }) {
-  let panelId = useId()
-  let [expanded, setExpanded] = useState(false)
-  let openRef = useRef<React.ElementRef<'button'>>(null)
-  let closeRef = useRef<React.ElementRef<'button'>>(null)
-  let navRef = useRef<React.ElementRef<'div'>>(null)
-  let shouldReduceMotion = useReducedMotion()
+        function onMouseMove(event: MouseEvent) {
+            if (!ref.current) {
+                return
+            }
 
-  useEffect(() => {
-    function onClick(event: MouseEvent) {
-      if (
-          event.target instanceof HTMLElement &&
-          event.target.closest('a')?.href === window.location.href
-      ) {
-        setExpanded(false)
-      }
-    }
+            let rect = ref.current.getBoundingClientRect()
+            let x = event.clientX - rect.left
+            let y = event.clientY - rect.top
+            if (x < 0 || y < 0 || x > rect.width || y > rect.height) {
+                return
+            }
 
-    window.addEventListener('click', onClick)
+            x = x - rect.width / 2 - 32
+            y = y - yOffset
+            x += Math.tan(32 / 160) * y
+            x = Math.floor(x / 96)
+            y = Math.floor(y / 160)
 
-    return () => {
-      window.removeEventListener('click', onClick)
-    }
-  }, [])
+            if (currentBlock.current?.[0] === x && currentBlock.current?.[1] === y) {
+                return
+            }
 
-  return (
-      <MotionConfig transition={shouldReduceMotion ? { duration: 0 } : undefined}>
-        <header>
-          <div
-              className="absolute left-0 right-0 top-2 z-40 pt-14"
-              aria-hidden={expanded ? 'true' : undefined}
-              // @ts-ignore (https://github.com/facebook/react/issues/17157)
-              inert={expanded ? '' : undefined}
-          >
-            <Header
-                panelId={panelId}
-                icon={MenuIcon}
-                toggleRef={openRef}
-                expanded={expanded}
-                onToggle={() => {
-                  setExpanded((expanded) => !expanded)
-                  window.setTimeout(() =>
-                      closeRef.current?.focus({ preventScroll: true }),
-                  )
-                }}
-            />
-          </div>
+            currentBlock.current = [x, y]
 
-          <motion.div
-              layout
-              id={panelId}
-              style={{ height: expanded ? 'auto' : '0.5rem' }}
-              className="relative z-50 overflow-hidden bg-neutral-950 pt-2"
-              aria-hidden={expanded ? undefined : 'true'}
-              // @ts-ignore (https://github.com/facebook/react/issues/17157)
-              inert={expanded ? undefined : ''}
-          >
-            <motion.div layout className="bg-neutral-800">
-              <div ref={navRef} className="bg-neutral-950 pb-16 pt-14">
-                <Header
-                    invert
-                    panelId={panelId}
-                    icon={XIcon}
-                    toggleRef={closeRef}
-                    expanded={expanded}
-                    onToggle={() => {
-                      setExpanded((expanded) => !expanded)
-                      window.setTimeout(() =>
-                          openRef.current?.focus({ preventScroll: true }),
-                      )
-                    }}
-                />
-              </div>
-              <Navigation />
-              <div className="relative bg-neutral-950 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-neutral-800">
-                <Container>
-                  <div className="grid grid-cols-1 gap-y-10 pb-16 pt-10 sm:grid-cols-2 sm:pt-16">
-                    <div>
-                      <h2 className="font-display text-base font-semibold text-white">
-                        Our offices
-                      </h2>
-                      <Offices
-                          invert
-                          className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-2"
-                      />
-                    </div>
-                    <div className="sm:border-l sm:border-transparent sm:pl-16">
-                      <h2 className="font-display text-base font-semibold text-white">
-                        Follow us
-                      </h2>
-                      <SocialMedia className="mt-6" invert />
-                    </div>
-                  </div>
-                </Container>
-              </div>
-            </motion.div>
-          </motion.div>
-        </header>
+            setHoveredBlocks((blocks) => {
+                let key = counter.current++
+                let block = [x, y, key] as (typeof hoveredBlocks)[number]
+                return [...blocks, block].filter(
+                    (block) => !(block[0] === x && block[1] === y && block[2] !== key),
+                )
+            })
+        }
 
-        <motion.div
-            layout
-            style={{ borderTopLeftRadius: 40, borderTopRightRadius: 40 }}
-            className="relative flex flex-auto overflow-hidden bg-white pt-14"
-        >
-          <motion.div
-              layout
-              className="relative isolate flex w-full flex-col pt-9"
-          >
-            <GridPattern
-                className="absolute inset-x-0 -top-14 -z-10 h-[1000px] w-full fill-neutral-50 stroke-neutral-950/5 [mask-image:linear-gradient(to_bottom_left,white_40%,transparent_50%)]"
-                yOffset={-96}
-                interactive
-            />
+        window.addEventListener('mousemove', onMouseMove)
 
-            <main className="w-full flex-auto">{children}</main>
+        return () => {
+            window.removeEventListener('mousemove', onMouseMove)
+        }
+    }, [yOffset, interactive])
 
-            <Footer />
-          </motion.div>
-        </motion.div>
-      </MotionConfig>
-  )
-}
-
-export function RootLayout({ children }: { children: React.ReactNode }) {
-  let pathname = usePathname()
-  let [logoHovered, setLogoHovered] = useState(false)
-
-  return (
-      <RootLayoutContext.Provider value={{ logoHovered, setLogoHovered }}>
-        <RootLayoutInner key={pathname}>{children}</RootLayoutInner>
-      </RootLayoutContext.Provider>
-  )
+    return (
+        <svg ref={ref} aria-hidden="true" {...props}>
+            <rect width="100%" height="100%" fill={`url(#${id})`} strokeWidth="0" />
+            <svg x="50%" y={yOffset} strokeWidth="0" className="overflow-visible">
+                {staticBlocks.map((block) => (
+                    <Block key={`${block}`} x={block[0]} y={block[1]} />
+                ))}
+                {hoveredBlocks.map((block) => (
+                    <Block
+                        key={block[2]}
+                        x={block[0]}
+                        y={block[1]}
+                        animate={{ opacity: [0, 1, 0] }}
+                        transition={{ duration: 1, times: [0, 0, 1] }}
+                        onAnimationComplete={() => {
+                            setHoveredBlocks((blocks) =>
+                                blocks.filter((b) => b[2] !== block[2]),
+                            )
+                        }}
+                    />
+                ))}
+            </svg>
+            <defs>
+                <pattern
+                    id={id}
+                    width="96"
+                    height="480"
+                    x="50%"
+                    patternUnits="userSpaceOnUse"
+                    patternTransform={`translate(0 ${yOffset})`}
+                    fill="none"
+                >
+                    <path d="M128 0 98.572 147.138A16 16 0 0 1 82.883 160H13.117a16 16 0 0 0-15.69 12.862l-26.855 134.276A16 16 0 0 1-45.117 320H-116M64-160 34.572-12.862A16 16 0 0 1 18.883 0h-69.766a16 16 0 0 0-15.69 12.862l-26.855 134.276A16 16 0 0 1-109.117 160H-180M192 160l-29.428 147.138A15.999 15.999 0 0 1 146.883 320H77.117a16 16 0 0 0-15.69 12.862L34.573 467.138A16 16 0 0 1 18.883 480H-52M-136 480h58.883a16 16 0 0 0 15.69-12.862l26.855-134.276A16 16 0 0 1-18.883 320h69.766a16 16 0 0 0 15.69-12.862l26.855-134.276A16 16 0 0 1 109.117 160H192M-72 640h58.883a16 16 0 0 0 15.69-12.862l26.855-134.276A16 16 0 0 1 45.117 480h69.766a15.999 15.999 0 0 0 15.689-12.862l26.856-134.276A15.999 15.999 0 0 1 173.117 320H256M-200 320h58.883a15.999 15.999 0 0 0 15.689-12.862l26.856-134.276A16 16 0 0 1-82.883 160h69.766a16 16 0 0 0 15.69-12.862L29.427 12.862A16 16 0 0 1 45.117 0H128" />
+                </pattern>
+            </defs>
+        </svg>
+    )
 }
