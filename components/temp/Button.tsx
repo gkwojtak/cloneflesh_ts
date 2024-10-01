@@ -27,14 +27,14 @@ export function Button({
 
     if (typeof props.href === 'undefined') {
         return (
-            <button className={className} {...props}>
+            <button className={className} {...(props as React.ComponentPropsWithoutRef<'button'>)}>
                 {inner}
             </button>
         )
     }
 
     return (
-        <Link className={className} {...props}>
+        <Link className={className} {...(props as React.ComponentPropsWithoutRef<typeof Link>)}>
             {inner}
         </Link>
     )
