@@ -43,7 +43,7 @@ const ProductImageGrid = () => {
               <div
                   className={'absolute ring-8 ring-white/40 rounded-2xl z-20 left-1/2 p-6 text-xl font-semibold -translate-x-1/2 bg-white space-x-4 shadow-xl top-1/2 -translate-y-1/2'}>
                   <FontAwesomeIcon icon={faHeart} className={'text-red-500 text-2xl'} />
-                  <span>Yesss! It's You inside!</span>
+                  <span>Yesss! It&apos;s You inside!</span>
               </div>
           </Container>
       </div>

@@ -3,8 +3,6 @@ import {FadeInStagger} from "@/components/temp/FadeIn";
 import HeroImg from "@/images/flesh-hero.webp";
 import {Container} from "@/components/temp/Container";
 import Link from "next/link";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faHeart} from "@fortawesome/pro-solid-svg-icons";
 
 const Hero = () => {
   return (

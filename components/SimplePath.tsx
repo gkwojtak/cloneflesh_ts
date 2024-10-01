@@ -1,7 +1,6 @@
 import {Container} from "@/components/temp/Container";
-import {simpleSteps, whyItsWorthList} from "@/libs/content";
+import {simpleSteps} from "@/libs/content";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {FadeIn, FadeInStagger} from "@/components/temp/FadeIn";
 
 const SimplePath = () => {
   return (

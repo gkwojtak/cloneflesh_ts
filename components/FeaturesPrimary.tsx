@@ -48,7 +48,7 @@ const FeaturesPrimary = () => {
           <div className={'mx-auto text-left md:border-y border-teal-700/20  '}>
               <Container>
                   <FadeInStagger className="mx-auto text-left grid md:grid-cols-2">
-                      {whyItsWorthList.slice(2, 4).map((item, index) => {
+                      {whyItsWorthList.slice(2, 4).map((item) => {
                           return (
                               <FadeIn className={'space-y-6 mb-12 md:mb-0 md:p-12 border-teal-700/20 max-w-4xl mx-auto md:odd:border-r'}
                                       key={item.title}>
