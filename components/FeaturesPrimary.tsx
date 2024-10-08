@@ -2,6 +2,7 @@ import {Container} from "@/components/temp/Container";
 import {whyItsWorthList} from "@/libs/content";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {FadeIn, FadeInStagger} from "@/components/temp/FadeIn";
+import Link from "next/link";
 
 const FeaturesPrimary = () => {
   return (
@@ -18,10 +19,13 @@ const FeaturesPrimary = () => {
                               something your fans own—it’s a piece of your world, designed exclusively for them.
                               It’s developed to deepen their connection with you in a way that’s both meaningful
                               and memorable.</p>
-                          <button
-                              className={'py-4 px-8 bg-slate-800 hover:bg-slate-900 rounded-full text-sm font-bold text-white'}>Ready?
-                              Let’s Get Started
-                          </button>
+
+                          <div className={'flex'}>
+                              <Link href={'/contact'}
+                                    className={'py-4 justify-center self-center px-8 bg-slate-800 hover:bg-slate-900 rounded-full flex items-center gap-x-4 text-sm font-bold text-white'}>
+                                  Let’s Get Started
+                              </Link>
+                          </div>
                       </div>
                   </div>
               </div>
