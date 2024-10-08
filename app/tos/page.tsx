@@ -53,44 +53,50 @@ const TOS = () => {
           Terms and Conditions for {config.appName}
         </h1>
 
-  {/*      <pre
+        <pre
           className="leading-relaxed whitespace-pre-wrap"
           style={{ fontFamily: "sans-serif" }}
         >
-          {`Last Updated: September 26, 2023
+          {`Last Updated: 08.10.2024
 
-Welcome to ShipFast!
+Welcome to CloneFlesh! Please read these Terms of Service ("Terms") carefully before using our website, https://cloneflesh.com, operated by CloneFlesh ("we," "us," or "our"). By accessing or using CloneFlesh, you agree to be bound by these Terms. If you do not agree with any part of the Terms, please discontinue use of the website.
 
-These Terms of Service ("Terms") govern your use of the ShipFast website at https://shipfa.st ("Website") and the services provided by ShipFast. By using our Website and services, you agree to these Terms.
+1. General Information
 
-1. Description of ShipFast
+CloneFlesh provides unique, personalized products designed for influencers and their fans, offering a physical reflection of the influencer’s image for a personal connection. For questions or inquiries, please contact us at contact@cloneflesh.com.
 
-ShipFast is a platform that offers a JavaScript code boilerplate to assist entrepreneurs in launching their startups more efficiently.
+2. User Data Collection
 
-2. Ownership and Usage Rights
+We collect personal data, including name, email, shipping address, and payment information, to process orders, fulfill shipments, and provide customer support. In compliance with the General Data Protection Regulation (GDPR), we ensure the lawful, transparent processing of all user data. Our Privacy Policy provides detailed information on how we process, store, and protect your data.
 
-When you purchase a package from ShipFast, you gain the right to download and use the code provided for creating applications. You own the code you create but do not have the right to resell it. We offer a full refund within 7 days of purchase, as specified in our refund policy.
+3. Intellectual Property & Ownership
 
-3. User Data and Privacy
+All content on CloneFlesh, including text, images, trademarks, logos, and product designs, is the exclusive property of CloneFlesh and protected under intellectual property laws. You agree not to copy, distribute, modify, or exploit any content on our website without prior written consent.
 
-We collect and store user data, including name, email, and payment information, as necessary to provide our services. For details on how we handle your data, please refer to our Privacy Policy at https://shipfa.st/privacy-policy.
+4. Product Sales & Usage
 
-4. Non-Personal Data Collection
+Our products are exclusively offered to adult users. By placing an order, you confirm that you are at least 18 years old. CloneFlesh reserves the right to deny sales if this condition is not met.
 
-We use web cookies to collect non-personal data for the purpose of improving our services and user experience.
+5. Payment and Order Processing
 
-5. Governing Law
+Payments are processed through secure third-party providers, and your order will be processed only after successful payment. CloneFlesh is not responsible for delays caused by issues with third-party payment processors.
 
-These Terms are governed by the laws of France.
+6. Privacy and Data Protection
 
-6. Updates to the Terms
+CloneFlesh complies with the GDPR and relevant data protection laws in Poland. We maintain strict confidentiality of your personal data and use it only for order processing, customer service, and support. Please see our Privacy Policy for further details.
 
-We may update these Terms from time to time. Users will be notified of any changes via email.
+7. Updates to Terms
 
-For any questions or concerns regarding these Terms of Service, please contact us at marc@shipfa.st.
+We may update these Terms from time to time. In the event of significant changes, we will notify users via the email address provided. Continued use of CloneFlesh following updates constitutes acceptance of the new Terms.
 
-Thank you for using ShipFast!`}
-        </pre>*/}
+8. Governing Law
+
+These Terms are governed by the laws of Poland, including relevant EU regulations. Any disputes arising from these Terms shall be handled in the jurisdiction of Poland.
+
+9. Contact Us
+
+For questions regarding these Terms of Service, please contact us at contact@cloneflesh.com.`}
+        </pre>
       </div>
     </main>
   );

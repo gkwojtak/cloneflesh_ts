@@ -53,56 +53,79 @@ const PrivacyPolicy = () => {
           Privacy Policy for {config.appName}
         </h1>
 
-{/*        <pre
+        <pre
           className="leading-relaxed whitespace-pre-wrap"
           style={{ fontFamily: "sans-serif" }}
         >
-          {`Last Updated: 2023-08-25
+          {`Last Updated: 08.10.2024
 
-Thank you for visiting ShipFast ("we," "us," or "our"). This Privacy Policy outlines how we collect, use, and protect your personal and non-personal information when you use our website located at https://shipfa.st (the "Website").
-
-By accessing or using the Website, you agree to the terms of this Privacy Policy. If you do not agree with the practices described in this policy, please do not use the Website.
+CloneFlesh is committed to protecting your privacy and ensuring your data security in compliance with the General Data Protection Regulation (GDPR) and other applicable EU regulations. By using our website, https://cloneflesh.com, you agree to the collection and use of information in accordance with this Privacy Policy. For inquiries, contact us at contact@cloneflesh.com.
 
 1. Information We Collect
 
-1.1 Personal Data
+Personal Data
+We collect the following personal information from users:
 
-We collect the following personal information from you:
-
-Name: We collect your name to personalize your experience and communicate with you effectively.
-Email: We collect your email address to send you important information regarding your orders, updates, and communication.
-Payment Information: We collect payment details to process your orders securely. However, we do not store your payment information on our servers. Payments are processed by trusted third-party payment processors.
-
-1.2 Non-Personal Data
-
-We may use web cookies and similar technologies to collect non-personal information such as your IP address, browser type, device information, and browsing patterns. This information helps us to enhance your browsing experience, analyze trends, and improve our services.
+Name
+Email address
+Shipping address
+Payment information
+Non-Personal Data
+We collect non-personal data, including cookies and usage data, to enhance your browsing experience and analyze website performance.
 
 2. Purpose of Data Collection
 
-We collect and use your personal data for the sole purpose of order processing. This includes processing your orders, sending order confirmations, providing customer support, and keeping you updated about the status of your orders.
+We collect and process personal data to:
 
-3. Data Sharing
+Process and fulfill orders
+Communicate with you regarding order status and customer support
+Provide a secure and personalized experience
+3. Legal Basis for Processing Personal Data
 
-We do not share your personal data with any third parties except as required for order processing (e.g., sharing your information with payment processors). We do not sell, trade, or rent your personal information to others.
+Our legal basis for collecting and processing personal data under GDPR includes:
 
-4. Children's Privacy
+Consent: When you voluntarily provide information.
+Contractual Necessity: For order processing and delivery.
+Legitimate Interest: For security, fraud prevention, and improving our services.
+4. Data Sharing and Security
 
-ShipFast is not intended for children under the age of 13. We do not knowingly collect personal information from children. If you are a parent or guardian and believe that your child has provided us with personal information, please contact us at the email address provided below.
+CloneFlesh does not share your personal data with third parties, except as required by law or with third-party service providers essential for order processing (e.g., payment processors). We implement technical and organizational measures to secure your data against unauthorized access and processing.
 
-5. Updates to the Privacy Policy
+5. Cookies and Non-Personal Data
 
-We may update this Privacy Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons. Any updates will be posted on this page, and we may notify you via email about significant changes.
+CloneFlesh uses cookies to enhance user experience and analyze website performance. You may manage cookie preferences through your browser settings.
 
-6. Contact Information
+6. Your Rights Under GDPR
 
-If you have any questions, concerns, or requests related to this Privacy Policy, you can contact us at:
+As a data subject, you have the right to:
 
-Email: marc@shipfa.st
+Access your personal data
+Request correction or deletion of your data
+Object to or restrict data processing
+Withdraw consent at any time, where consent is the legal basis for processing
+Lodge a complaint with a supervisory authority in the EU if you believe your data protection rights are violated
+To exercise these rights, contact us at contact@cloneflesh.com.
 
-For all other inquiries, please visit our Contact Us page on the Website.
+7. Children's Privacy
 
-By using ShipFast, you consent to the terms of this Privacy Policy.`}
-        </pre>*/}
+CloneFlesh does not knowingly collect or process any data from individuals under 18 years old. Our products are intended exclusively for adults.
+
+8. Updates to this Privacy Policy
+
+We may update this Privacy Policy periodically to reflect changes in our practices or legal requirements. We will notify you of significant changes via email. Please review this policy periodically to stay informed.
+
+9. Data Retention
+
+We retain personal data only as long as necessary for order fulfillment, legal compliance, and legitimate business purposes. Non-personal data collected via cookies is retained for analytical purposes only.
+
+10. Governing Law
+
+This Privacy Policy is governed by the laws of Poland and relevant EU regulations. Any disputes shall be handled in the jurisdiction of Poland.
+
+11. Contact Us
+
+For questions regarding this Privacy Policy, please reach out to us at contact@cloneflesh.com.`}
+        </pre>
       </div>
     </main>
   );
