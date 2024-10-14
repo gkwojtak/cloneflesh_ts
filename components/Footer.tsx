@@ -35,8 +35,8 @@ const Footer = () => {
                   <Link href="/product" className="link link-hover">
                     Product
                   </Link>
-                  <Link href="/about-us" className="link link-hover">
-                    About Us
+                  <Link href="/shop" className="link link-hover">
+                    Shop
                   </Link>
                   <Link href="/process" className="link link-hover">
                     The Process
